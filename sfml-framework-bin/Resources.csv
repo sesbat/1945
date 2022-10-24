@@ -1,0 +1,12 @@
+id,type
+graphics/airplaneMove.png,0
+graphics/explotion.png,0
+graphics/titleScene.png,0
+animations/titleScene/titleScene.csv,3
+animations/title/title.csv,3
+font/1945.ttf,1
+graphics/titletext.png,0
+graphics/player1.png,0
+graphics/bullet1-4.png,0
+graphics/boss1.png,0
+graphics/bullet1-1.png,0

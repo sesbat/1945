@@ -1,0 +1,98 @@
+#include "Player.h"
+#include "../Framework/InputMgr.h"
+#include "../Scene/SceneMgr.h"
+
+Player::Player()
+{
+}
+
+Player::~Player()
+{
+}
+
+
+
+void Player::Init()
+{
+	SpriteObj::Init();
+}
+
+void Player::Release()
+{
+}
+
+void Player::Update(float dt)
+{
+	SpriteObj::Update(dt);
+
+	dir.x = InputMgr::GetAxisRaw(Axis::Horizontal);
+	dir.y = InputMgr::GetAxisRaw(Axis::Vertical);
+
+	shootDelay -= dt;
+
+	if(shootDelay<=0)
+	{
+		if (InputMgr::GetKey(Keyboard::Space))
+		{
+			Fire();
+			shootDelay = 0.1f;
+		}
+
+	}
+
+	// ����
+	//velocity += direction * accelation * dt;
+	/*if (Utils::Magnitude(velocity) > speed)
+	{
+		velocity = Utils::Normalize(velocity) * speed;
+	}*/
+
+	/*if (direction.x == 0.f)
+	{
+		if (velocity.x > 0.f)
+		{
+			velocity.x -= deaccelation * dt;
+			if (velocity.x < 0.f)
+				velocity.x = 0.f;
+		}
+		if (velocity.x < 0.f)
+		{
+			velocity.x += deaccelation * dt;
+			if (velocity.x > 0.f)
+				velocity.x = 0.f;
+		}
+	}
+
+	if (direction.y == 0.f)
+	{
+		if (velocity.y > 0.f)
+		{
+			velocity.y -= deaccelation * dt;
+			if (velocity.y < 0.f)
+				velocity.y = 0.f;
+		}
+		if (velocity.y < 0.f)
+		{
+			velocity.y += deaccelation * dt;
+			if (velocity.y > 0.f)
+				velocity.y = 0.f;
+		}
+	}
+	*/
+	Translate(speed * dir * dt);
+
+}
+
+void Player::Draw(RenderWindow& window)
+{
+	
+	SpriteObj::Draw(window);
+}
+
+void Player::Fire()
+{
+	Vector2f startPos = position;
+	Bullet* bullet = bulletPool->Get();
+	SCENE_MGR->GetCurrScene()->AddGameObj(bullet);
+	bullet->Fire(startPos, {0,-1}, 1000, 500);
+}

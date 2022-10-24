@@ -1,0 +1,20 @@
+ID,LOOPTYPE (0: Single 1: Move),FPS,,,,,,
+titleScene,1,10,,,,,,
+,,,,,,,,
+TEXTURE ID,L,T,W,H,X,Y,FlipX,FlipY 
+graphics/titleScene.png,16,228,224,112,112,56,0,0
+graphics/titleScene.png,242,228,224,112,112,56,0,0
+graphics/titleScene.png,468,228,224,112,112,56,0,0
+graphics/titleScene.png,694,228,224,112,112,56,0,0
+graphics/titleScene.png,16,456,224,112,112,56,0,0
+graphics/titleScene.png,242,456,224,112,112,56,0,0
+graphics/titleScene.png,468,456,224,112,112,56,0,0
+graphics/titleScene.png,694,456,224,112,112,56,0,0
+graphics/titleScene.png,16,570,224,112,112,56,0,0
+graphics/titleScene.png,242,570,224,112,112,56,0,0
+graphics/titleScene.png,468,570,224,112,112,56,0,0
+graphics/titleScene.png,694,570,224,112,112,56,0,0
+graphics/titleScene.png,16,684,224,112,112,56,0,0
+graphics/titleScene.png,242,684,224,112,112,56,0,0
+graphics/titleScene.png,468,684,224,112,112,56,0,0
+graphics/titleScene.png,694,684,224,112,112,56,0,0
