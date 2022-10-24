@@ -157,6 +157,7 @@
     <ClCompile Include="Framework\InputMgr.cpp" />
     <ClCompile Include="Framework\ResourceMgr.cpp" />
     <ClCompile Include="Framework\Utils.cpp" />
+    <ClCompile Include="GameObject\VertexArrayObj.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GameObject\Object.cpp" />
     <ClCompile Include="GameObject\Player.cpp" />
@@ -188,6 +189,7 @@
     <ClInclude Include="Framework\Utils.h" />
     <ClInclude Include="GameObject\Object.h" />
     <ClInclude Include="GameObject\Player.h" />
+    <ClInclude Include="GameObject\VertexArrayObj.h" />
     <ClInclude Include="Scene\SceneDev1.h" />
     <ClInclude Include="Scene\SceneDev2.h" />
     <ClInclude Include="Scene\Scene.h" />

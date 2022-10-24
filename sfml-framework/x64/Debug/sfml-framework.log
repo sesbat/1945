@@ -1,0 +1,41 @@
+﻿  Collider.cpp
+C:\Users\sesba\Desktop\개인 포폴 소스트리\sfml-framework\GameObject\Collider.cpp(21,23): error C2398: 요소 '1': 'int'에서 'T'(으)로 변환하려면 축소 변환이 필요합니다.
+          with
+          [
+              T=float
+          ]
+C:\Users\sesba\Desktop\개인 포폴 소스트리\sfml-framework\GameObject\Collider.cpp(21,35): error C2398: 요소 '2': 'int'에서 'T'(으)로 변환하려면 축소 변환이 필요합니다.
+          with
+          [
+              T=float
+          ]
+C:\Users\sesba\Desktop\개인 포폴 소스트리\sfml-framework\GameObject\Collider.cpp(21,47): error C2398: 요소 '3': 'int'에서 'T'(으)로 변환하려면 축소 변환이 필요합니다.
+          with
+          [
+              T=float
+          ]
+C:\Users\sesba\Desktop\개인 포폴 소스트리\sfml-framework\GameObject\Collider.cpp(21,69): error C2398: 요소 '4': 'int'에서 'T'(으)로 변환하려면 축소 변환이 필요합니다.
+          with
+          [
+              T=float
+          ]
+C:\Users\sesba\Desktop\개인 포폴 소스트리\sfml-framework\GameObject\Collider.cpp(21,69): warning C4244: '인수': 'int'에서 'T'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              T=float
+          ]
+C:\Users\sesba\Desktop\개인 포폴 소스트리\sfml-framework\GameObject\Collider.cpp(21,47): warning C4244: '인수': 'int'에서 'T'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              T=float
+          ]
+C:\Users\sesba\Desktop\개인 포폴 소스트리\sfml-framework\GameObject\Collider.cpp(21,35): warning C4244: '인수': 'int'에서 'T'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              T=float
+          ]
+C:\Users\sesba\Desktop\개인 포폴 소스트리\sfml-framework\GameObject\Collider.cpp(21,23): warning C4244: '인수': 'int'에서 'T'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              T=float
+          ]

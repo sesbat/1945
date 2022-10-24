@@ -3,6 +3,7 @@
 #include "../Scene/SceneMgr.h"
 
 Player::Player()
+	:level(BulletLevel::LEVEL1)
 {
 }
 
@@ -35,7 +36,7 @@ void Player::Update(float dt)
 		if (InputMgr::GetKey(Keyboard::Space))
 		{
 			Fire();
-			shootDelay = 0.1f;
+			shootDelay = 0.2f;
 		}
 
 	}

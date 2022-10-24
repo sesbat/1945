@@ -3,7 +3,7 @@
 #include "Bullet.h"
 #include "../Framework/ObjectPool.h"
 
-enum class BulletType
+enum class BulletLevel
 {
 	LEVEL1,
 	LEVEL2,
@@ -18,6 +18,7 @@ private:
 	float speed = 1000.f;
 	float shootDelay = 0.1f;
 
+	BulletLevel level;
 	int Damage = 5;
 	ObjectPool<Bullet>* bulletPool;
 public:
