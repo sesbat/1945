@@ -16,8 +16,11 @@ class Player :
 private:
 	Vector2f dir;
 	float speed = 1000.f;
-	float shootDelay = 0.1f;
 
+	float shootDelay = 0.1f;
+	float hitDelay = 1.f;
+
+	int hp;
 	BulletLevel level;
 	int Damage = 5;
 	ObjectPool<Bullet>* bulletPool;
@@ -35,6 +38,7 @@ public:
 
 	int GetDamage() { return Damage; }
 
+	void OnHitBullet(int Damage);
 	void UpgradeBullet();
 	void Fire();
 };

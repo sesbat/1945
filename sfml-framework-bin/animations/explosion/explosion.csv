@@ -1,0 +1,19 @@
+ID,LOOPTYPE (0: Single 1: Move),FPS,,,,,,
+explosion,0,10,,,,,,
+,,,,,,,,
+TEXTURE ID,L,T,W,H,X,Y,FlipX,FlipY
+graphics/explosion.png,0,0,128,104,64,52,0,0
+graphics/explosion.png,128,0,128,104,64,52,0,0
+graphics/explosion.png,256,0,128,104,64,52,0,0
+graphics/explosion.png,384,0,128,104,64,52,0,0
+graphics/explosion.png,512,0,128,104,64,52,0,0
+graphics/explosion.png,640,0,128,104,64,52,0,0
+graphics/explosion.png,768,0,128,104,64,52,0,0
+graphics/explosion.png,896,0,128,104,64,52,0,0
+graphics/explosion.png,1024,0,128,104,64,52,0,0
+graphics/explosion.png,1152,0,128,104,64,52,0,0
+graphics/explosion.png,1280,0,128,104,64,52,0,0
+graphics/explosion.png,1408,0,128,104,64,52,0,0
+graphics/explosion.png,1536,0,128,104,64,52,0,0
+graphics/explosion.png,1664,0,128,104,64,52,0,0
+graphics/explosion.png,1792,0,128,104,64,52,0,0

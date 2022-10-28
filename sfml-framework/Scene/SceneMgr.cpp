@@ -23,7 +23,12 @@ Scene* SceneMgr::GetScene(Scenes scene)
 
 void SceneMgr::ChangeScene(Scenes scene)
 {
+	if (currScene == scene)
+		return;
+	sceneMap[currScene]->Exit();
 	currScene = scene;
+	sceneMap[currScene]->Enter();
+
 }
 
 void SceneMgr::Update(float dt)

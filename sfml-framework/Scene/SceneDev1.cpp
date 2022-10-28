@@ -10,6 +10,7 @@
 #include "../UI/UiDev1Mgr.h"
 #include"../Framework/Framework.h"
 #include "../Animation/AnimationClip.h"
+#include "Scene.h"
 
 SceneDev1::SceneDev1()
 	:Scene(Scenes::Dev1)
@@ -43,9 +44,9 @@ void SceneDev1::Init()
 {
 	Release();
 
-	animationSprite.setPosition(1280.f / 2, 480.f);
+	animationSprite.setPosition(1280.f/ 2, 480.f);
 	Utils::SetOrigin(animationSprite, Origins::MC);
-	animationSprite.setScale({ 4,2 });
+	animationSprite.setScale({ 6,2 });
 	animator.SetTarget(&animationSprite);
 	animator.AddClip(*ResourceMgr::GetInstance()->GetAnimationClip("titleScene"));
 	{
@@ -57,7 +58,7 @@ void SceneDev1::Init()
 	}
 	titleSprite.setPosition(1280.f / 2, 272.f);
 	Utils::SetOrigin(titleSprite, Origins::MC);
-	titleSprite.setScale({ 4,1 });
+	titleSprite.setScale({ 6,1 });
 	title.SetTarget(&titleSprite);
 	title.AddClip(*ResourceMgr::GetInstance()->GetAnimationClip("title"));
 	{
@@ -69,7 +70,8 @@ void SceneDev1::Init()
 	}
 	mainTex = new SpriteObj();
 	mainTex->SetTexture(*RESOURCE_MGR->GetTexture("graphics/titletext.png"));
-	mainTex->SetPos({ 1280.f / 2 - 90, 200.f });
+	mainTex->SetOrigin(Origins::MC);
+	mainTex->SetPos({ 1280.f / 2 , 360.f });
 	uiObjList.push_back(mainTex);
 
 	titleTex = new TextObj();
@@ -103,6 +105,9 @@ void SceneDev1::Release()
 
 void SceneDev1::Enter()
 {
+	worldView.setSize(1280,720);
+	worldView.setCenter(1280 / 2, 720 / 2);
+
 	animator.Play("titleScene");
 	title.Play("title");
 }
@@ -124,7 +129,7 @@ void SceneDev1::Update(float dt)
 	}
 	switch (currState)
 	{
-	case SceneDev1::States::TitleScene:
+	case States::TitleScene:
 
 		break;
 	default:

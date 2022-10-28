@@ -6,13 +6,17 @@ class Bullet : public SpriteObj
 {
 protected:
 	Vector2f dir;
+	Vector2f vel;
+
 	float speed;
 	float range;
 
 	int Damage = 1;
 
+	
 public:
 	Bullet();
+	Bullet(sf::Texture* tex,sf::Vector2f dir, sf::Vector2f pos, sf::IntRect rect);
 	~Bullet();
 
 	void Fire(const Vector2f& pos, const Vector2f& dir, float speed, float range = 0.f);

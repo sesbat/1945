@@ -6,6 +6,15 @@ Bullet::Bullet()
 {
 }
 
+Bullet::Bullet(sf::Texture* tex,sf::Vector2f dir, sf::Vector2f pos, sf::IntRect rect)
+	:dir(), speed(100.f), range(1000.f)
+{
+	this->dir = dir;
+	sprite.setTexture(*tex);
+	sprite.setTextureRect(rect);
+	sprite.setPosition(pos);
+}
+
 Bullet::~Bullet()
 {
 }
@@ -48,7 +57,6 @@ void Bullet::Update(float dt)
 
 	Translate(dir * dt * speed);
 	range -= Utils::Magnitude(dir * dt * speed);
-
 }
 
 void Bullet::Draw(RenderWindow& window)

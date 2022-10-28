@@ -11,6 +11,13 @@ enum class Scenes
 	Dev1,
 	Dev2,
 };
+enum class States
+{
+	None = -1,
+	TitleScene,
+	moveairplane,
+	Explosion,
+};
 
 class UiMgr;
 class Scene

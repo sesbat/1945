@@ -187,6 +187,7 @@
     <ClInclude Include="Framework\ObjectPool.h" />
     <ClInclude Include="Framework\ResourceMgr.h" />
     <ClInclude Include="Framework\Utils.h" />
+    <ClInclude Include="GameObject\EnemyBullet.h" />
     <ClInclude Include="GameObject\Object.h" />
     <ClInclude Include="GameObject\Player.h" />
     <ClInclude Include="GameObject\VertexArrayObj.h" />

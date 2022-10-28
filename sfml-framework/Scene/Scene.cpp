@@ -28,7 +28,7 @@ void Scene::Update(float dt)
 {
 	for (const auto& obj : objList)
 	{
-		if (obj->GetActive())
+ 		if (obj->GetActive())
 		{
 			obj->Update(dt);
 		}

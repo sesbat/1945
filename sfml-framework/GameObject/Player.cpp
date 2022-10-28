@@ -3,7 +3,7 @@
 #include "../Scene/SceneMgr.h"
 
 Player::Player()
-	:level(BulletLevel::LEVEL1)
+	:level(BulletLevel::LEVEL1),hp(100)
 {
 }
 
@@ -30,14 +30,15 @@ void Player::Update(float dt)
 	dir.y = InputMgr::GetAxisRaw(Axis::Vertical);
 
 	shootDelay -= dt;
+	hitDelay -= dt;
 
 	if(shootDelay<=0)
 	{
-		if (InputMgr::GetKey(Keyboard::Space))
-		{
-			Fire();
-			shootDelay = 0.2f;
-		}
+		Fire();
+		shootDelay = 0.2f;
+	}
+	if (InputMgr::GetKeyDown(Keyboard::Space))
+	{
 
 	}
 

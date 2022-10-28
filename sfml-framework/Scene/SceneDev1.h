@@ -11,13 +11,7 @@ class TextObj;
 class SceneDev1 : public Scene
 {
 private:
-	enum class States
-	{
-		None = -1,
-		TitleScene,
-		moveairplane,
-		Explotion,
-	};
+	
 protected:
 	Sprite animationSprite;
 	Animator animator;

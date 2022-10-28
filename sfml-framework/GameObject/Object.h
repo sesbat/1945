@@ -29,6 +29,8 @@ public:
 	const string& GetName()const { return name; }
 	void SetName(const string& n) { name = n; }
 
+	
+
 	virtual void SetActive(bool active);
 	virtual bool GetActive() const;
 

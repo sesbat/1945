@@ -10,6 +10,8 @@
 #include "../Framework/ObjectPool.h"
 #include "../GameObject/Bullet.h"
 #include "../GameObject/Enemy.h"
+#include "../Framework/Framework.h"
+#include "../Animation/Animator.h"
 
 void OnCreateBullet(Bullet* bullet)
 {
@@ -39,21 +41,23 @@ void SceneDev2::Init()
 {
 	Release();
 
+	canExplosion = true;
+
 	uiMgr = new UiDev2Mgr(this);
 	uiMgr->Init();
 
 	player = new Player();
 	player->SetTexture(*RESOURCE_MGR->GetTexture("graphics/player1.png"));
-	player->SetPos({ 1280.f / 2 - 90, 600.f });
+	player->SetPos({ 1280.f/ 2 , 600.f });
 	player->SetOrigin(Origins::MC);
 	player->SetBulletPool(&bullets);
 	player->Init();
 	objList.push_back(player);
 
-	enemy = new Enemy({ 800.f,200.f });
+	enemy = new Enemy({ 800.f,1200.f });
  	enemy->SetTexture(*RESOURCE_MGR->GetTexture("graphics/boss1.png"));
 	enemy->SetOrigin(Origins::BC);
-	enemy->SetBulletPool(&EnemyBullets);
+	//enemy->SetBulletPool(&EnemyBullets);
 	enemy->SetPlayer(player);
 	enemy->Init();
 	objList.push_back(enemy);
@@ -61,8 +65,22 @@ void SceneDev2::Init()
 	bullets.OnCreate = OnCreateBullet;
 	bullets.Init();
 
-	EnemyBullets.OnCreate = OnCreateEnemyBullet;
-	EnemyBullets.Init();
+
+	explosionSprite.setPosition(enemy->GetPos().x, enemy->GetPos().y-50);
+	//Utils::SetOrigin(explosionSprite, Origins::BC);
+	explosionSprite.setScale({ 4,4 });
+	explosion.SetTarget(&explosionSprite);
+	explosion.AddClip(*ResourceMgr::GetInstance()->GetAnimationClip("explosion"));
+	{
+		AnimationEvent ev;
+		ev.clipId = "explosion";
+		ev.frame = 15;
+		ev.onEvent = bind(&SceneDev2::OnCompleteExplosion, this);
+		explosion.AddEvent(ev);
+	}
+
+	/*EnemyBullets.OnCreate = OnCreateEnemyBullet;
+	EnemyBullets.Init();*/
 
 	for (auto obj : objList)
 	{
@@ -84,6 +102,8 @@ void SceneDev2::Release()
 
 void SceneDev2::Enter()
 {
+	worldView.setSize(1280, 720);
+	worldView.setCenter(1280 / 2, 720 / 2);
 }
 
 void SceneDev2::Exit()
@@ -94,23 +114,51 @@ void SceneDev2::Exit()
 
 void SceneDev2::Update(float dt)
 {
+	//explosionSprite.setPosition(enemy->GetPos());
 	if (InputMgr::GetKeyDown(Keyboard::Num1))
 	{
 		SCENE_MGR->ChangeScene(Scenes::Dev1);
 	}
-	enemy->Update(dt);
-	player->Update(dt);
+	for (auto bullet : bullets.GetUseList())
+	{
+		if (bullet->GetPos().y <= -50)
+		{
+			objList.remove(bullet);
+			bullet = NULL;
+		}
+	}
+	if (enemy->GetHp()<=0&&canExplosion)
+	{
+		explosion.Play("explosion");
+		canExplosion = false;
+	}
+	
+	explosionSprite.setPosition
+	(enemy->GetPos().x, enemy->GetPos().y - 50);
+	explosion.Update(dt);
 	Scene::Update(dt);
+
 }
 
 void SceneDev2::Draw(RenderWindow& window)
 {
+	Scene::Draw(window);
+	window.draw(explosionSprite);
+
 	const auto& bulletList = bullets.GetUseList();
 	for (auto bullet : bulletList)
 	{
 		bullet->Draw(window);
 	}
-	enemy->Draw(window); 
-	player->Draw(window);
-	Scene::Draw(window);
 }
+void SceneDev2::SetState(States newState)
+{
+	if (currState == newState)
+		return;
+	currState = newState;
+}
+void SceneDev2::OnCompleteExplosion()
+{
+	SetState(States::Explosion);
+}
+
